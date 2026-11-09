@@ -985,6 +985,7 @@ let currentSort = {
 };
 
 let currentSearchTerm = '';
+const talentSelection = TalentSelection.create({ talents, render: renderCurrentTalents });
 
 // Fonctions de gestion du tableau
 function initTable() {
@@ -1038,7 +1039,12 @@ function sortTable(column) {
     // Mettre à jour les indicateurs visuels
     updateSortIndicators();
     
-    // Appliquer le tri
+    renderCurrentTalents();
+}
+
+function renderCurrentTalents() {
+    // Appliquer le tri sans changer sa direction lors d'une recherche ou sélection.
+    const column = currentSort.column;
     let sortedTalents = [...talents];
     
     if (currentSort.direction) {
@@ -1087,7 +1093,8 @@ function updateSortIndicators() {
 function highlightText(text, searchTerm) {
     if (!searchTerm) return text;
     
-    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    const escapedTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedTerm})`, 'gi');
     return text.replace(regex, '<span class="highlight">$1</span>');
 }
 
@@ -1135,6 +1142,7 @@ function renderTalents(talentsToShow) {
             <td data-label="Coût"><span class="talent-cout">${talent.cout}</span></td>
         `;
         
+        talentSelection.bindRow(row, talent);
         tbody.appendChild(row);
     });
 }
@@ -1150,11 +1158,12 @@ function searchTalents() {
     currentSearchTerm = searchInput.value.toLowerCase();
     
     // Appliquer le tri actuel si présent
-    sortTable(currentSort.column || '');
+    renderCurrentTalents();
 }
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
+    talentSelection.init();
     initTable();
     
     const searchInput = document.getElementById('searchInput');

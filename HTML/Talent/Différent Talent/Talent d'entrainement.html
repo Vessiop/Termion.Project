@@ -6,6 +6,7 @@
     <title>Talents d'Entraînement - Termion</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Talent CSS.css/Type de talent CSS/Talent d entrainemnet.css">
+    <link rel="stylesheet" href="../../../CSS/css extender/Talent CSS.css/selection-talents.css">
 </head>
 <body>
     <div class="parchment-overlay"></div>
@@ -30,11 +31,26 @@
                 <button id="clearSearch" class="clear-btn">✕</button>
             </div>
             
+            <div class="talent-selection-controls">
+                <label><input type="checkbox" id="selectionModeToggle"> Mode sélection</label>
+                <button type="button" id="resetSelection" disabled>Réinitialiser la sélection</button>
+            </div>
             <div class="results-count">
                 <span id="talentCount">0</span> talents affichés sur <span id="totalCount">0</span>
             </div>
         </div>
 
+        <section id="selectedSection" class="selection-summary" aria-labelledby="selectionTitle" hidden>
+            <div class="selection-summary-header">
+                <h2 id="selectionTitle">Talents sélectionnés</h2>
+                <div class="selection-summary-stats" aria-live="polite" aria-atomic="true">
+                    <span><strong id="selectedCount">0</strong> talent(s)</span>
+                    <span>Total : <strong id="selectedTotal">0</strong> point(s)</span>
+                </div>
+            </div>
+            <p id="emptySelection">Aucun talent sélectionné.</p>
+            <div id="selectedGrid" class="selected-grid"></div>
+        </section>
         <!-- Tableau des talents -->
         <div class="table-wrapper">
             <table id="talentsTable" class="talents-table">
@@ -70,6 +86,7 @@
         <p>© 2024 Termion - Tous droits réservés</p>
     </footer>
 
+    <script src="../../../Java/Talent/selection-talents.js"></script>
     <script src="../../../Java/Talent/talent d entrainement.js"></script>
 </body>
 </html>

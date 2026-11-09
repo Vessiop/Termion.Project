@@ -1,112 +1,2266 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Technomancien - Termion</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe spécial css/classes-nouvelles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js" defer></script>
-    <script src="../../../Java/Classe/Classe spécial js/classes-nouvelles.js" defer></script>
+
+    <!-- Polices -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="../../../CSS/css extender/Classe jdr CSS/Classe spécial css/Technomancien.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"
+            defer></script>
+
+    <!-- JS -->
+    <script src="../../../Java/Classe/Classe spécial js/Technomancien.js"
+            defer></script>
 </head>
-<body class="technomancien">
-    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
-    <header class="hero-section">
-        <div class="hero-image">
-            <img src="../../../Image/Technomancien.png" alt="Technomancien en long manteau, une épée à la main, suspendu au-dessus d’un dispositif techno-arcanique" width="595" height="900" fetchpriority="high">
+
+
+<body class="technomancien-page">
+
+    <!-- =========================================================
+         DÉCOR GLOBAL
+    ========================================================== -->
+
+    <div class="tech-background" aria-hidden="true">
+
+        <div class="grid-floor"></div>
+
+        <div class="arcane-glow glow-one"></div>
+        <div class="arcane-glow glow-two"></div>
+
+        <div class="circuit-lines"></div>
+
+        <div class="energy-particles" id="energy-particles"></div>
+
+        <div class="scanlines"></div>
+
+        <div class="vignette"></div>
+
+    </div>
+
+
+    <!-- =========================================================
+         RETOUR
+    ========================================================== -->
+
+    <a href="../ClasseGlo.html" class="back-button">
+        ← Retour aux classes
+    </a>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <header class="hero-section reveal-section">
+
+        <div class="hero-image-panel">
+
+            <div class="exo-frame">
+
+                <div class="exo-corner corner-tl"></div>
+                <div class="exo-corner corner-tr"></div>
+                <div class="exo-corner corner-bl"></div>
+                <div class="exo-corner corner-br"></div>
+
+                <div class="exo-ring ring-one"></div>
+                <div class="exo-ring ring-two"></div>
+                <div class="exo-ring ring-three"></div>
+
+                <div class="hero-scanner-line"></div>
+
+                <img
+                    src="../../../Image/Technomancien.png"
+                    alt="Technomancien en long manteau, une épée à la main, suspendu au-dessus d’un dispositif techno-arcanique"
+                    width="595"
+                    height="900"
+                    fetchpriority="high"
+                >
+
+                <div class="exo-status">
+                    <span class="status-light"></span>
+                    SYSTÈME NOVA ACTIF
+                </div>
+
+            </div>
+
         </div>
+
+
         <div class="hero-content">
-            <p class="class-affiliation">Ferrovia Nova</p>
-            <h1 class="class-title">Technomancien</h1>
-            <p class="class-type">Ferrovia Nova — Exo-Armure, Techno-Arcane et Gadgets.</p>
-            <p class="hero-disciplines"><span>Arsenal</span><span>Châssis</span><span>Atelier</span></p>
+
+            <p class="class-affiliation">
+                Ferrovia Nova
+            </p>
+
+            <h1 class="class-title">
+                Technomancien
+            </h1>
+
+            <p class="hero-code">
+                [UNITÉ // EXO-ARCANE // NOVA]
+            </p>
+
+            <p class="class-type">
+                Ferrovia Nova — Exo-Armure, Techno-Arcane et Gadgets.
+            </p>
+
+            <div class="hero-disciplines">
+
+                <span>
+                    Arsenal
+                </span>
+
+                <span>
+                    Châssis
+                </span>
+
+                <span>
+                    Atelier
+                </span>
+
+            </div>
+
+
+            <div class="hero-system-readout">
+
+                <div class="readout-line">
+                    <span>
+                        Interface Bio
+                    </span>
+
+                    <strong>
+                        CONNECTÉE
+                    </strong>
+                </div>
+
+                <div class="readout-line">
+                    <span>
+                        Réseau Nova
+                    </span>
+
+                    <strong>
+                        STABLE
+                    </strong>
+                </div>
+
+                <div class="readout-line">
+                    <span>
+                        Exo-Armure
+                    </span>
+
+                    <strong>
+                        DISPONIBLE
+                    </strong>
+                </div>
+
+            </div>
+
         </div>
+
     </header>
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
     <nav class="class-nav" aria-label="Sections de la fiche">
-        <a href="#presentation">Présentation</a><a href="#statistiques">Statistiques</a><a href="#talents">Talents</a><a href="#origines">Origines</a><a href="#passif">Exo-Armure</a><a href="#equipement">Équipement</a>
+
+        <a href="#presentation">
+            Présentation
+        </a>
+
+        <a href="#statistiques">
+            Statistiques
+        </a>
+
+        <a href="#talents">
+            Talents
+        </a>
+
+        <a href="#origines">
+            Origines
+        </a>
+
+        <a href="#passif">
+            Exo-Armure
+        </a>
+
+        <a href="#connaissances">
+            Connaissances
+        </a>
+
+        <a href="#equipement">
+            Équipement
+        </a>
+
     </nav>
+
+
+    <!-- =========================================================
+         CONTENU PRINCIPAL
+    ========================================================== -->
+
     <main class="container">
-        <section class="section" id="presentation">
-            <h2>Description / Présentation</h2>
-            <p>Les Technomanciens sont les spécialistes de terrain de Ferrovia Nova, formés à unir mécanique et énergie magique. Là où un mage manipule directement la magie, eux la captent, la stabilisent et l’exploitent au moyen de Batteries Arcane, d’armes, de Gadgets et surtout de leur Exo-Armure Techno-Arcane. Leur formation passe par une adaptation physique particulière, le Bio du Technomancien, qui leur permet de supporter durablement les contraintes énergétiques et mécaniques de leur équipement.</p>
-            <p>Chaque Technomancien apprend à utiliser, entretenir et modifier son Exo-Armure selon ses besoins. Certains deviennent Proto-Combattants Nova, spécialisés dans le combat rapproché et l’assistance du châssis ; d’autres choisissent la voie du Proto-Tireur, du Proto-Constructeur ou du Proto-Hibou, davantage orientés vers le tir, l’artisanat ou l’infiltration. Malgré leurs différences, tous partagent la même logique : comprendre la machine, exploiter ses ressources et adapter la technologie à la situation.</p>
-            <p>Très présents autour des infrastructures de Ferrovia Nova, des réseaux ferroviaires, des mines, des convois et des accès aux Mondes souterrains, les Technomanciens peuvent agir comme agents de sécurité, ingénieurs, explorateurs ou artisans itinérants. Leur proximité avec une corporation aussi puissante leur vaut autant de respect que de méfiance, mais partout où ils passent, ils incarnent une même idée : la technologie n’est jamais figée, elle peut toujours être poussée plus loin par celui qui sait la comprendre et la modifier.</p>
+
+
+        <!-- =====================================================
+             PRÉSENTATION
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="presentation"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    01
+                </span>
+
+                <div>
+
+                    <p class="section-code">
+                        DATA // CLASS_PROFILE
+                    </p>
+
+                    <h2>
+                        Description / Présentation
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-box data-panel">
+
+                <p>
+                    Les Technomanciens sont les spécialistes de terrain de
+                    Ferrovia Nova, formés à unir mécanique et énergie magique.
+                    Là où un mage manipule directement la magie, eux la captent,
+                    la stabilisent et l’exploitent au moyen de Batteries Arcane,
+                    d’armes, de Gadgets et surtout de leur Exo-Armure
+                    Techno-Arcane.
+                </p>
+
+                <p>
+                    Leur formation passe par une adaptation physique
+                    particulière, le Bio du Technomancien, qui leur permet de
+                    supporter durablement les contraintes énergétiques et
+                    mécaniques de leur équipement.
+                </p>
+
+                <p>
+                    Chaque Technomancien apprend à utiliser, entretenir et
+                    modifier son Exo-Armure selon ses besoins. Certains deviennent
+                    Proto-Combattants Nova, spécialisés dans le combat rapproché
+                    et l’assistance du châssis ; d’autres choisissent la voie du
+                    Proto-Tireur, du Proto-Constructeur ou du Proto-Hibou,
+                    davantage orientés vers le tir, l’artisanat ou
+                    l’infiltration.
+                </p>
+
+                <p>
+                    Malgré leurs différences, tous partagent la même logique :
+                    comprendre la machine, exploiter ses ressources et adapter la
+                    technologie à la situation.
+                </p>
+
+                <p>
+                    Très présents autour des infrastructures de Ferrovia Nova,
+                    des réseaux ferroviaires, des mines, des convois et des accès
+                    aux Mondes souterrains, les Technomanciens peuvent agir comme
+                    agents de sécurité, ingénieurs, explorateurs ou artisans
+                    itinérants.
+                </p>
+
+                <p>
+                    Leur proximité avec une corporation aussi puissante leur vaut
+                    autant de respect que de méfiance, mais partout où ils
+                    passent, ils incarnent une même idée :
+                    la technologie n’est jamais figée, elle peut toujours être
+                    poussée plus loin par celui qui sait la comprendre et la
+                    modifier.
+                </p>
+
+            </div>
+
         </section>
-        <section class="section" id="statistiques" data-base-stats='{"FOR":1,"CST":2,"DEX":1,"INT":3,"SAG":-8,"PER":2,"CHA":-3}'>
-            <h2>Statistiques de base</h2>
+
+
+        <!-- =====================================================
+             STATISTIQUES
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="statistiques"
+            data-base-stats='{"FOR":1,"CST":2,"DEX":1,"INT":3,"SAG":-8,"PER":2,"CHA":-3}'
+        >
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    02
+                </span>
+
+                <div>
+
+                    <p class="section-code">
+                        DIAGNOSTIC // UNIT_STATS
+                    </p>
+
+                    <h2>
+                        Statistiques de base
+                    </h2>
+
+                </div>
+
+            </div>
+
+
             <div class="stats-grid">
-                <div class="stat-category"><h3>Base PV / PM / PE</h3><ul><li><strong>PV :</strong> 1d14</li><li><strong>PM :</strong> 1d8</li><li><strong>PE :</strong> 1d12</li></ul></div>
-                <div class="stat-category"><h3>Bonus &amp; malus</h3><div class="bonus-grid">
-                    <span class="stat-item positive" data-stat="FOR">FOR : +1</span><span class="stat-item positive" data-stat="CST">CST : +2</span>
-                    <span class="stat-item positive" data-stat="DEX">DEX : +1</span><span class="stat-item positive" data-stat="INT">INT : +3</span>
-                    <span class="stat-item negative" data-stat="SAG">SAG : -8</span><span class="stat-item positive" data-stat="PER">PER : +2</span>
-                    <span class="stat-item negative" data-stat="CHA">CHA : -3</span>
-                </div><ul><li><strong>RM :</strong> 25 + 2d6</li><li><strong>Réactivité :</strong> +5</li></ul></div>
-                <div class="stat-category"><h3>Traits spécifiques</h3><div class="traits-grid"><span>Résilience : 1</span><span>Instinct : 1</span><span>Finesse : 1</span><span>Savoir : 2</span><span>Social : 1</span><span>Puissance : 1</span><span>Métier : 2</span><span>Sang-froid : 1</span></div></div>
-                <div class="stat-category"><h3>Graphique des caractéristiques</h3><div class="chart-wrapper"><canvas id="statsChart" role="img" aria-label="Graphique des caractéristiques du Technomancien"></canvas><p id="chart-fallback" class="chart-fallback" hidden>Graphique indisponible. Les caractéristiques figurent ci-dessus.</p></div></div>
+
+
+                <!-- PV PM PE -->
+
+                <article class="stat-category">
+
+                    <div class="panel-header">
+
+                        <span class="panel-dot"></span>
+
+                        <h3>
+                            Ressources système
+                        </h3>
+
+                    </div>
+
+                    <ul class="resource-list">
+
+                        <li>
+                            <strong>PV :</strong>
+                            1d14
+                        </li>
+
+                        <li>
+                            <strong>PM :</strong>
+                            1d8
+                        </li>
+
+                        <li>
+                            <strong>PE :</strong>
+                            1d12
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <!-- CARACTÉRISTIQUES -->
+
+                <article class="stat-category">
+
+                    <div class="panel-header">
+
+                        <span class="panel-dot"></span>
+
+                        <h3>
+                            Paramètres biologiques
+                        </h3>
+
+                    </div>
+
+
+                    <div class="bonus-grid">
+
+                        <span class="stat-item positive" data-stat="FOR">
+                            FOR : +1
+                        </span>
+
+                        <span class="stat-item positive" data-stat="CST">
+                            CST : +2
+                        </span>
+
+                        <span class="stat-item positive" data-stat="DEX">
+                            DEX : +1
+                        </span>
+
+                        <span class="stat-item positive" data-stat="INT">
+                            INT : +3
+                        </span>
+
+                        <span class="stat-item negative" data-stat="SAG">
+                            SAG : -8
+                        </span>
+
+                        <span class="stat-item positive" data-stat="PER">
+                            PER : +2
+                        </span>
+
+                        <span class="stat-item negative" data-stat="CHA">
+                            CHA : -3
+                        </span>
+
+                    </div>
+
+
+                    <ul class="resistance-list">
+
+                        <li>
+                            <strong>RM :</strong>
+                            25 + 2d6
+                        </li>
+
+                        <li>
+                            <strong>Réactivité :</strong>
+                            +5
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <!-- TRAITS -->
+
+                <article class="stat-category">
+
+                    <div class="panel-header">
+
+                        <span class="panel-dot"></span>
+
+                        <h3>
+                            Modules comportementaux
+                        </h3>
+
+                    </div>
+
+
+                    <div class="traits-grid">
+
+                        <span>
+                            Résilience : 1
+                        </span>
+
+                        <span>
+                            Instinct : 1
+                        </span>
+
+                        <span>
+                            Finesse : 1
+                        </span>
+
+                        <span>
+                            Savoir : 2
+                        </span>
+
+                        <span>
+                            Social : 1
+                        </span>
+
+                        <span>
+                            Puissance : 1
+                        </span>
+
+                        <span>
+                            Métier : 2
+                        </span>
+
+                        <span>
+                            Sang-froid : 1
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- RADAR -->
+
+                <article class="stat-category chart-container">
+
+                    <div class="panel-header">
+
+                        <span class="panel-dot"></span>
+
+                        <h3>
+                            Scanner tactique
+                        </h3>
+
+                    </div>
+
+
+                    <div class="chart-wrapper">
+
+                        <div
+                            class="scanner-ring scanner-ring-one"
+                            aria-hidden="true"
+                        ></div>
+
+                        <div
+                            class="scanner-ring scanner-ring-two"
+                            aria-hidden="true"
+                        ></div>
+
+                        <canvas
+                            id="statsChart"
+                            role="img"
+                            aria-label="Graphique des caractéristiques du Technomancien"
+                        ></canvas>
+
+                        <p
+                            id="chart-fallback"
+                            class="chart-fallback"
+                            hidden
+                        >
+                            Graphique indisponible.
+                            Les caractéristiques figurent ci-dessus.
+                        </p>
+
+                    </div>
+
+                </article>
+
             </div>
+
         </section>
-        <section class="section" id="talents">
-            <h2>Talents de classe</h2>
-            <div class="talent-card"><h3>Bio-Châssis Arcanique</h3><p>Le Bio du Technomancien renforce l’organisme par une structure artificielle et des interfaces capables de supporter les contraintes des technologies Techno-Arcanes. Il permet l’utilisation normale des Exo-Armures Arcanes conçues pour cette classe.</p><ul><li><strong>Résistance magique de 10 %</strong> aux dégâts issus des Sources élémentaires et de la Magie Pure.</li><li><strong>Vulnérabilité de 20 %</strong> aux dégâts d’Acide.</li><li><strong>Vulnérabilité de 10 %</strong> aux dégâts de Lumière.</li><li><strong>Vulnérabilité de 10 %</strong> aux dégâts de Ténèbres.</li></ul></div>
-            <div class="talent-card"><h3>Compréhension Techno-Arcane</h3><p>Le Technomancien reconnaît les principes fondamentaux des technologies mêlant magie et mécanique. Tous les jets de <strong>Savoir directement liés au domaine de la Techno-Arcane</strong> sont effectués en <strong>Avantage</strong>.</p></div>
-            <div class="talent-card"><h3>Savoir-faire rudimentaire — Techno-Arcane</h3><p>Sa formation pratique lui permet les opérations courantes d’entretien, de montage et de manipulation de dispositifs Techno-Arcanes.</p><p><strong>Technicien Arcanique (Métier) +1.</strong></p></div>
-            <div class="talent-card"><h3>Synchronisation Nova</h3><p>Ses gestes s’accordent aux mécanismes, aux commandes et aux flux énergétiques des armes, outils et dispositifs Techno-Arcanes.</p><p><strong>Utilisation Techno-Arcane (Caractéristique) +2.</strong></p></div>
-            <div class="talent-card"><h3>Surcharge du Réseau</h3><p>Le Technomancien peut pousser son Exo-Armure au-delà de son fonctionnement normal : <strong>8 PM + 8 PE</strong> pour obtenir <strong>+1 Impulsion Nova pendant ce tour</strong>, soit exceptionnellement <strong>3 Impulsions au lieu de 2</strong>.</p><p>La Batterie active devient <strong>Échauffée</strong>. Elle ne peut pas être Surchargée durant le prochain tour, puis revient à son état normal.</p></div>
+
+
+        <!-- =====================================================
+             TALENTS
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="talents"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    03
+                </span>
+
+                <div>
+
+                    <p class="section-code">
+                        MODULES // CORE_SYSTEMS
+                    </p>
+
+                    <h2>
+                        Talents de classe
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="talent-grid">
+
+
+                <!-- TALENT 1 -->
+
+                <article class="talent-card">
+
+                    <div class="module-number">
+                        M-01
+                    </div>
+
+                    <h3>
+                        Bio-Châssis Arcanique
+                    </h3>
+
+                    <p>
+                        Le Bio du Technomancien renforce l’organisme par une
+                        structure artificielle et des interfaces capables de
+                        supporter les contraintes des technologies
+                        Techno-Arcanes.
+                    </p>
+
+                    <p>
+                        Il permet l’utilisation normale des Exo-Armures Arcanes
+                        conçues pour cette classe.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <strong>
+                                Résistance magique de 10 %
+                            </strong>
+                            aux dégâts issus des Sources élémentaires et de la
+                            Magie Pure.
+                        </li>
+
+                        <li>
+                            <strong>
+                                Vulnérabilité de 20 %
+                            </strong>
+                            aux dégâts d’Acide.
+                        </li>
+
+                        <li>
+                            <strong>
+                                Vulnérabilité de 10 %
+                            </strong>
+                            aux dégâts de Lumière.
+                        </li>
+
+                        <li>
+                            <strong>
+                                Vulnérabilité de 10 %
+                            </strong>
+                            aux dégâts de Ténèbres.
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <!-- TALENT 2 -->
+
+                <article class="talent-card">
+
+                    <div class="module-number">
+                        M-02
+                    </div>
+
+                    <h3>
+                        Compréhension Techno-Arcane
+                    </h3>
+
+                    <p>
+                        Le Technomancien reconnaît les principes fondamentaux des
+                        technologies mêlant magie et mécanique.
+                    </p>
+
+                    <p>
+                        Tous les jets de
+                        <strong>
+                            Savoir directement liés au domaine de la
+                            Techno-Arcane
+                        </strong>
+                        sont effectués en
+                        <strong>Avantage</strong>.
+                    </p>
+
+                </article>
+
+
+                <!-- TALENT 3 -->
+
+                <article class="talent-card">
+
+                    <div class="module-number">
+                        M-03
+                    </div>
+
+                    <h3>
+                        Savoir-faire rudimentaire — Techno-Arcane
+                    </h3>
+
+                    <p>
+                        Sa formation pratique lui permet les opérations courantes
+                        d’entretien, de montage et de manipulation de dispositifs
+                        Techno-Arcanes.
+                    </p>
+
+                    <p class="system-bonus">
+                        <strong>
+                            Technicien Arcanique (Métier) +1.
+                        </strong>
+                    </p>
+
+                </article>
+
+
+                <!-- TALENT 4 -->
+
+                <article class="talent-card">
+
+                    <div class="module-number">
+                        M-04
+                    </div>
+
+                    <h3>
+                        Synchronisation Nova
+                    </h3>
+
+                    <p>
+                        Ses gestes s’accordent aux mécanismes, aux commandes et
+                        aux flux énergétiques des armes, outils et dispositifs
+                        Techno-Arcanes.
+                    </p>
+
+                    <p class="system-bonus">
+                        <strong>
+                            Utilisation Techno-Arcane (Caractéristique) +2.
+                        </strong>
+                    </p>
+
+                </article>
+
+
+                <!-- TALENT 5 -->
+
+                <article class="talent-card overload-card">
+
+                    <div class="module-number">
+                        M-05
+                    </div>
+
+                    <h3>
+                        Surcharge du Réseau
+                    </h3>
+
+                    <p>
+                        Le Technomancien peut pousser son Exo-Armure au-delà de
+                        son fonctionnement normal :
+                    </p>
+
+                    <div class="overload-cost">
+
+                        <span>
+                            8 PM
+                        </span>
+
+                        <span class="plus">
+                            +
+                        </span>
+
+                        <span>
+                            8 PE
+                        </span>
+
+                    </div>
+
+                    <p>
+                        pour obtenir
+                        <strong>
+                            +1 Impulsion Nova pendant ce tour
+                        </strong>,
+                        soit exceptionnellement
+                        <strong>
+                            3 Impulsions au lieu de 2.
+                        </strong>
+                    </p>
+
+                    <p>
+                        La Batterie active devient
+                        <strong>Échauffée</strong>.
+                    </p>
+
+                    <p>
+                        Elle ne peut pas être Surchargée durant le prochain tour,
+                        puis revient à son état normal.
+                    </p>
+
+                </article>
+
+            </div>
+
         </section>
-        <section class="section" id="origines">
-            <h2>Origines — 1 au choix</h2>
-            <div class="selection-bar"><p id="current-origin-display" aria-live="polite">Caractéristiques de base</p><button type="button" data-reset-origin>Réinitialiser</button></div>
+
+
+        <!-- =====================================================
+             ORIGINES
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="origines"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    04
+                </span>
+
+                <div>
+
+                    <p class="section-code">
+                        CONFIG // PROTO_PROFILE
+                    </p>
+
+                    <h2>
+                        Origines — 1 au choix
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="selection-bar">
+
+                <div class="selection-status">
+
+                    <span class="selection-led"></span>
+
+                    <p
+                        id="current-origin-display"
+                        aria-live="polite"
+                    >
+                        Configuration de base
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    data-reset-origin
+                >
+                    RESET CONFIG
+                </button>
+
+            </div>
+
+
             <div class="origin-grid">
-                <article class="origin-card" data-origin-name="Proto-Combattant Nova" data-bonuses='{"FOR":3,"CST":2}'>
-                    <h3>Proto-Combattant Nova</h3><p><strong>Combat rapproché / Exo-Armure / intervention.</strong></p><p>Formé pour intervenir au contact, le Combattant Nova transforme son Exo-Armure en prolongement martial du corps : plaques renforcées, vérins, gantelets alimentés, armes canalisées et systèmes de stabilisation. Il escorte les convois, intervient dans les industries dangereuses et protège les installations de Ferrovia Nova.</p>
-                    <h4>Assistance de Châssis</h4><p>Lorsque l’Exo-Armure peut effectivement intervenir dans une action physique nécessitant <strong>FOR, CST ou DEX</strong> : <strong>1 fois par tour, +5 au jet concerné</strong>.</p>
-                    <h4>Maîtrise mineure d’Arme</h4><p>Maîtrise mineure d’une arme au choix, adaptée aux interventions de proximité conjointement avec l’Exo-Armure.</p>
-                    <div class="gains"><p><strong>Caractéristiques :</strong> FOR +3 ; CST +2.</p><p><strong>Trait :</strong> +1 au choix : Puissance, Résilience ou Sang-froid.</p></div><button type="button" data-select-origin aria-pressed="false">Choisir cette origine</button>
+
+
+                <!-- =================================================
+                     COMBATTANT
+                ================================================== -->
+
+                <article
+                    class="origin-card combattant"
+                    data-origin-name="Proto-Combattant Nova"
+                    data-bonuses='{"FOR":3,"CST":2}'
+                >
+
+                    <div class="origin-topline">
+
+                        <span>
+                            PROTO // 01
+                        </span>
+
+                        <span>
+                            CLOSE_COMBAT
+                        </span>
+
+                    </div>
+
+
+                    <div class="origin-emblem">
+                        ⚔
+                    </div>
+
+                    <h3>
+                        Proto-Combattant Nova
+                    </h3>
+
+                    <p class="origin-role">
+                        Combat rapproché / Exo-Armure / intervention.
+                    </p>
+
+
+                    <p>
+                        Formé pour intervenir au contact, le Combattant Nova
+                        transforme son Exo-Armure en prolongement martial du
+                        corps : plaques renforcées, vérins, gantelets alimentés,
+                        armes canalisées et systèmes de stabilisation.
+                    </p>
+
+                    <p>
+                        Il escorte les convois, intervient dans les industries
+                        dangereuses et protège les installations de Ferrovia
+                        Nova.
+                    </p>
+
+
+                    <div class="origin-module">
+
+                        <h4>
+                            Assistance de Châssis
+                        </h4>
+
+                        <p>
+                            Lorsque l’Exo-Armure peut effectivement intervenir
+                            dans une action physique nécessitant
+                            <strong>
+                                FOR, CST ou DEX
+                            </strong> :
+                        </p>
+
+                        <p>
+                            <strong>
+                                1 fois par tour, +5 au jet concerné.
+                            </strong>
+                        </p>
+
+                    </div>
+
+
+                    <div class="origin-module">
+
+                        <h4>
+                            Maîtrise mineure d’Arme
+                        </h4>
+
+                        <p>
+                            Maîtrise mineure d’une arme au choix, adaptée aux
+                            interventions de proximité conjointement avec
+                            l’Exo-Armure.
+                        </p>
+
+                    </div>
+
+
+                    <div class="gains">
+
+                        <p>
+                            <strong>
+                                Caractéristiques :
+                            </strong>
+                            FOR +3 ; CST +2.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Trait :
+                            </strong>
+                            +1 au choix :
+                            Puissance, Résilience ou Sang-froid.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        data-select-origin
+                        aria-pressed="false"
+                    >
+                        CHARGER CONFIGURATION
+                    </button>
+
                 </article>
-                <article class="origin-card" data-origin-name="Proto-Tireur Nova" data-bonuses='{"DEX":3,"PER":2}'>
-                    <h3>Proto-Tireur Nova</h3><p><strong>Tir / précision / armement Techno-Nova.</strong></p><p>Spécialiste des armes alimentées par Cellules Silex : carabines, armes de poing, arbalètes assistées, projecteurs cristallins et armes expérimentales. Sa formation porte sur la température, la pression, la stabilité des mécanismes et le remplacement rapide des Batteries sous stress. Il accompagne convois, explorateurs et unités de sécurité.</p>
-                    <h4>Calibrage de Tir</h4><p>Avec une arme Techno-Nova alimentée par une Cellule Silex : <strong>+5 au premier jet de tir Techno-Nova de chaque tour</strong>.</p>
-                    <h4>Maîtrise mineure d’Arme de Tir</h4><p>À la création, choisir la Maîtrise mineure d’une catégorie : <strong>Arme à feu courte, Arme à feu longue ou Arbalète</strong>.</p>
-                    <div class="gains"><p><strong>Caractéristiques :</strong> DEX +3 ; PER +2.</p><p><strong>Trait :</strong> +1 au choix : Finesse, Instinct ou Sang-froid.</p></div><button type="button" data-select-origin aria-pressed="false">Choisir cette origine</button>
+
+
+                <!-- =================================================
+                     TIREUR
+                ================================================== -->
+
+                <article
+                    class="origin-card tireur"
+                    data-origin-name="Proto-Tireur Nova"
+                    data-bonuses='{"DEX":3,"PER":2}'
+                >
+
+                    <div class="origin-topline">
+
+                        <span>
+                            PROTO // 02
+                        </span>
+
+                        <span>
+                            RANGED_SYSTEM
+                        </span>
+
+                    </div>
+
+
+                    <div class="origin-emblem">
+                        ⦿
+                    </div>
+
+                    <h3>
+                        Proto-Tireur Nova
+                    </h3>
+
+                    <p class="origin-role">
+                        Tir / précision / armement Techno-Nova.
+                    </p>
+
+
+                    <p>
+                        Spécialiste des armes alimentées par Cellules Silex :
+                        carabines, armes de poing, arbalètes assistées,
+                        projecteurs cristallins et armes expérimentales.
+                    </p>
+
+                    <p>
+                        Sa formation porte sur la température, la pression, la
+                        stabilité des mécanismes et le remplacement rapide des
+                        Batteries sous stress.
+                    </p>
+
+                    <p>
+                        Il accompagne convois, explorateurs et unités de
+                        sécurité.
+                    </p>
+
+
+                    <div class="origin-module">
+
+                        <h4>
+                            Calibrage de Tir
+                        </h4>
+
+                        <p>
+                            Avec une arme Techno-Nova alimentée par une Cellule
+                            Silex :
+                        </p>
+
+                        <p>
+                            <strong>
+                                +5 au premier jet de tir Techno-Nova de chaque
+                                tour.
+                            </strong>
+                        </p>
+
+                    </div>
+
+
+                    <div class="origin-module">
+
+                        <h4>
+                            Maîtrise mineure d’Arme de Tir
+                        </h4>
+
+                        <p>
+                            À la création, choisir la Maîtrise mineure d’une
+                            catégorie :
+                        </p>
+
+                        <p>
+                            <strong>
+                                Arme à feu courte, Arme à feu longue ou
+                                Arbalète.
+                            </strong>
+                        </p>
+
+                    </div>
+
+
+                    <div class="gains">
+
+                        <p>
+                            <strong>
+                                Caractéristiques :
+                            </strong>
+                            DEX +3 ; PER +2.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Trait :
+                            </strong>
+                            +1 au choix :
+                            Finesse, Instinct ou Sang-froid.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        data-select-origin
+                        aria-pressed="false"
+                    >
+                        CHARGER CONFIGURATION
+                    </button>
+
                 </article>
-                <article class="origin-card" data-origin-name="Proto-Constructeur Nova" data-bonuses='{"INT":3,"DEX":2}'>
-                    <h3>Proto-Constructeur Nova</h3><p><strong>Artisan / Gadgets / réparation / fabrication.</strong></p><p>Le cœur artisanal de la Techno-Arcane : comprendre, démonter, réparer et reconstruire les inventions de Ferrovia Nova. Son Exo-Armure devient un atelier ambulant avec outils, pinces, compartiments et appareils de mesure. Il travaille principalement avec les Cellules Dynamo Martellus au courant modulable.</p>
-                    <h4>Main d’Atelier</h4><p>Réparation, fabrication ou intervention mécanique sur un dispositif Techno-Arcane : <strong>Avantage sur le jet de Métier concerné</strong>. Ne s’applique pas en l’absence totale d’outils ou de matériaux permettant l’intervention.</p>
-                    <h4>Reconstruction Optimisée</h4><p><strong>1 fois par tour</strong>, lorsqu’il fait progresser la Reconstruction d’un Gadget, celui-ci reçoit <strong>+1 point de Reconstruction supplémentaire</strong>. Une progression normale de +1 devient +2.</p>
-                    <div class="gains"><p><strong>Caractéristiques :</strong> INT +3 ; DEX +2.</p><p><strong>Trait :</strong> +1 au choix : Métier, Savoir ou Finesse.</p></div><button type="button" data-select-origin aria-pressed="false">Choisir cette origine</button>
+
+
+                <!-- =================================================
+                     CONSTRUCTEUR
+                ================================================== -->
+
+                <article
+                    class="origin-card constructeur"
+                    data-origin-name="Proto-Constructeur Nova"
+                    data-bonuses='{"INT":3,"DEX":2}'
+                >
+
+                    <div class="origin-topline">
+
+                        <span>
+                            PROTO // 03
+                        </span>
+
+                        <span>
+                            ENGINEERING
+                        </span>
+
+                    </div>
+
+
+                    <div class="origin-emblem">
+                        ⚙
+                    </div>
+
+                    <h3>
+                        Proto-Constructeur Nova
+                    </h3>
+
+                    <p class="origin-role">
+                        Artisan / Gadgets / réparation / fabrication.
+                    </p>
+
+
+                    <p>
+                        Le cœur artisanal de la Techno-Arcane :
+                        comprendre, démonter, réparer et reconstruire les
+                        inventions de Ferrovia Nova.
+                    </p>
+
+                    <p>
+                        Son Exo-Armure devient un atelier ambulant avec outils,
+                        pinces, compartiments et appareils de mesure.
+                    </p>
+
+                    <p>
+                        Il travaille principalement avec les Cellules Dynamo
+                        Martellus au courant modulable.
+                    </p>
+
+
+                    <div class="origin-module">
+
+                        <h4>
+                            Main d’Atelier
+                        </h4>
+
+                        <p>
+                            Réparation, fabrication ou intervention mécanique
+                            sur un dispositif Techno-Arcane :
+                        </p>
+
+                        <p>
+                            <strong>
+                                Avantage sur le jet de Métier concerné.
+                            </strong>
+                        </p>
+
+                        <p>
+                            Ne s’applique pas en l’absence totale d’outils ou de
+                            matériaux permettant l’intervention.
+                        </p>
+
+                    </div>
+
+
+                    <div class="origin-module">
+
+                        <h4>
+                            Reconstruction Optimisée
+                        </h4>
+
+                        <p>
+                            <strong>
+                                1 fois par tour
+                            </strong>,
+                            lorsqu’il fait progresser la Reconstruction d’un
+                            Gadget, celui-ci reçoit
+                            <strong>
+                                +1 point de Reconstruction supplémentaire.
+                            </strong>
+                        </p>
+
+                        <p>
+                            Une progression normale de +1 devient +2.
+                        </p>
+
+                    </div>
+
+
+                    <div class="gains">
+
+                        <p>
+                            <strong>
+                                Caractéristiques :
+                            </strong>
+                            INT +3 ; DEX +2.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Trait :
+                            </strong>
+                            +1 au choix :
+                            Métier, Savoir ou Finesse.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        data-select-origin
+                        aria-pressed="false"
+                    >
+                        CHARGER CONFIGURATION
+                    </button>
+
                 </article>
-                <article class="origin-card" data-origin-name="Proto-Hibou" data-bonuses='{"PER":3,"DEX":2}'>
-                    <h3>Proto-Hibou</h3><p><strong>Infiltration / observation / reconnaissance / intervention discrète.</strong></p><p>Le Hibou intervient là où une équipe attirerait trop l’attention : quartiers sombres, installations abandonnées, zones fermées, souterrains ou territoires contaminés. Son Exo-Armure privilégie mobilité, capteurs et faibles émissions ; elle reprend parfois des éléments des Garde-Voile Novienses ou des Scaphandres de Traverse Éthérique.</p>
-                    <h4>Optiques du Hibou</h4><p><strong>Avantage</strong> lorsqu’il utilise les capteurs de son Exo-Armure pour observer, rechercher, analyser une zone, repérer une présence ou détecter une anomalie mécanique ou techno-arcane.</p>
-                    <h4>Furtivité Silencieuse — Mineure</h4><p>Déplacements discrets, usage des ombres, des sons ambiants et des obstacles pour masquer sa présence ou se retirer.</p><p><strong>Furtivité +2 (DEX)</strong> ; <strong>Déplacement silencieux +1 (Finesse)</strong>.</p>
-                    <div class="gains"><p><strong>Caractéristiques :</strong> PER +3 ; DEX +2.</p><p><strong>Trait :</strong> +1 au choix : Instinct, Finesse ou Savoir.</p></div><button type="button" data-select-origin aria-pressed="false">Choisir cette origine</button>
+
+
+                <!-- =================================================
+                     HIBOU
+                ================================================== -->
+
+                <article
+                    class="origin-card hibou"
+                    data-origin-name="Proto-Hibou"
+                    data-bonuses='{"PER":3,"DEX":2}'
+                >
+
+                    <div class="origin-topline">
+
+                        <span>
+                            PROTO // 04
+                        </span>
+
+                        <span>
+                            RECON_MODE
+                        </span>
+
+                    </div>
+
+
+                    <div class="origin-emblem">
+                        ◉
+                    </div>
+
+                    <h3>
+                        Proto-Hibou
+                    </h3>
+
+                    <p class="origin-role">
+                        Infiltration / observation / reconnaissance /
+                        intervention discrète.
+                    </p>
+
+
+                    <p>
+                        Le Hibou intervient là où une équipe attirerait trop
+                        l’attention : quartiers sombres, installations
+                        abandonnées, zones fermées, souterrains ou territoires
+                        contaminés.
+                    </p>
+
+                    <p>
+                        Son Exo-Armure privilégie mobilité, capteurs et faibles
+                        émissions ; elle reprend parfois des éléments des
+                        Garde-Voile Novienses ou des Scaphandres de Traverse
+                        Éthérique.
+                    </p>
+
+
+                    <div class="origin-module">
+
+                        <h4>
+                            Optiques du Hibou
+                        </h4>
+
+                        <p>
+                            <strong>
+                                Avantage
+                            </strong>
+                            lorsqu’il utilise les capteurs de son Exo-Armure pour
+                            observer, rechercher, analyser une zone, repérer une
+                            présence ou détecter une anomalie mécanique ou
+                            techno-arcane.
+                        </p>
+
+                    </div>
+
+
+                    <div class="origin-module">
+
+                        <h4>
+                            Furtivité Silencieuse — Mineure
+                        </h4>
+
+                        <p>
+                            Déplacements discrets, usage des ombres, des sons
+                            ambiants et des obstacles pour masquer sa présence ou
+                            se retirer.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Furtivité +2 (DEX)
+                            </strong>
+                            ;
+                            <strong>
+                                Déplacement silencieux +1 (Finesse).
+                            </strong>
+                        </p>
+
+                    </div>
+
+
+                    <div class="gains">
+
+                        <p>
+                            <strong>
+                                Caractéristiques :
+                            </strong>
+                            PER +3 ; DEX +2.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Trait :
+                            </strong>
+                            +1 au choix :
+                            Instinct, Finesse ou Savoir.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        data-select-origin
+                        aria-pressed="false"
+                    >
+                        CHARGER CONFIGURATION
+                    </button>
+
                 </article>
+
             </div>
+
         </section>
-        <section class="section" id="passif">
-            <h2>Passif — Exo-Armure Techno-Arcane</h2>
-            <p>Adaptée au corps du Technomancien, l’Exo-Armure lui sert de protection, de source d’énergie et d’atelier mobile.</p><ul><li><strong>1 emplacement de Batterie Arcane active.</strong></li><li><strong>3 emplacements de Gadget.</strong></li><li><strong>3 circuits internes :</strong> Arsenal, Châssis et Atelier.</li></ul>
-            <h3>Réseau d’Impulsion Nova</h3><p>Au début de chaque tour, le Technomancien génère <strong>2 Impulsions Nova</strong>, librement réparties entre les circuits. Les Impulsions non utilisées disparaissent à la fin du tour. Les deux peuvent être investies dans le même circuit.</p>
-            <div class="table-scroll"><table><thead><tr><th>Circuit</th><th>Effet de chaque Impulsion</th></tr></thead><tbody><tr><td>Arsenal</td><td>+5 à un jet offensif Techno-Arcane effectué pendant ce tour.</td></tr><tr><td>Châssis</td><td>Au choix : +5 MOV ou +5 à un jet défensif ou de Réactivité utilisant l’Exo-Armure.</td></tr><tr><td>Atelier</td><td>+1 point de Reconstruction à un Gadget.</td></tr></tbody></table></div>
-            <h3>Atelier Modulaire</h3><p>Le Technomancien maîtrise différents Plans, mais peut monter <strong>3 Gadgets simultanément</strong>. À l’utilisation, un Gadget devient indisponible et sa Reconstruction revient à <strong>0</strong>. Chaque point du circuit Atelier l’augmente de <strong>+1</strong> ; lorsque la valeur maximale est atteinte, le Gadget redevient utilisable.</p><p><strong>Exemple :</strong> un Grappin mécanique de Reconstruction 2 revient à 0 / 2 après utilisation ; deux points le rendent à nouveau disponible.</p><p>Pendant un repos, une préparation ou une scène calme, les Gadgets montés peuvent être remplacés par d’autres Plans maîtrisés.</p>
-            <h3>Interface de Batterie Arcane</h3><p><strong>1 Batterie active à la fois.</strong> Elle alimente l’Exo-Armure et peut modifier Arsenal, Châssis, Atelier, certains Gadgets et certaines facultés. Son énergie est consommable et peut diminuer lorsqu’elle alimente activement l’armure ou qu’une faculté l’exige.</p><p><strong>Changement de Batterie : 1 PR, maximum 1 fois par tour.</strong> Une Batterie accessible dans l’équipement remplace la Batterie active et devient immédiatement active.</p>
+
+
+        <!-- =====================================================
+             PASSIF — EXO ARMURE
+        ====================================================== -->
+
+        <section
+            class="section exo-section reveal-section"
+            id="passif"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    05
+                </span>
+
+                <div>
+
+                    <p class="section-code">
+                        EXO_CORE // NOVA_NETWORK
+                    </p>
+
+                    <h2>
+                        Passif — Exo-Armure Techno-Arcane
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- VISUEL EXO -->
+
+            <div class="exo-core-panel">
+
+                <div class="exo-core" role="button" tabindex="0" aria-label="Réinitialiser les impulsions Nova" title="Réinitialiser les impulsions Nova">
+
+                    <div class="core-ring ring-a"></div>
+                    <div class="core-ring ring-b"></div>
+                    <div class="core-ring ring-c"></div>
+
+                    <div class="core-energy">
+                        NOVA
+                    </div>
+
+                </div>
+
+
+                <div class="exo-specs">
+
+                    <div class="exo-spec">
+
+                        <span>
+                            BATTERY_SLOT
+                        </span>
+
+                        <strong>
+                            01
+                        </strong>
+
+                    </div>
+
+
+                    <div class="exo-spec">
+
+                        <span>
+                            GADGET_SLOTS
+                        </span>
+
+                        <strong>
+                            03
+                        </strong>
+
+                    </div>
+
+
+                    <div class="exo-spec">
+
+                        <span>
+                            CIRCUITS
+                        </span>
+
+                        <strong>
+                            03
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-box">
+
+                <p>
+                    Adaptée au corps du Technomancien, l’Exo-Armure lui sert de
+                    protection, de source d’énergie et d’atelier mobile.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <strong>
+                            1 emplacement de Batterie Arcane active.
+                        </strong>
+                    </li>
+
+                    <li>
+                        <strong>
+                            3 emplacements de Gadget.
+                        </strong>
+                    </li>
+
+                    <li>
+                        <strong>
+                            3 circuits internes :
+                        </strong>
+                        Arsenal, Châssis et Atelier.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- IMPULSIONS -->
+
+            <div class="nova-network">
+
+                <div class="network-header">
+
+                    <div>
+
+                        <p class="system-label">
+                            NOVA NETWORK
+                        </p>
+
+                        <h3>
+                            Réseau d’Impulsion Nova
+                        </h3>
+
+                    </div>
+
+
+                    <div class="impulse-counter">
+
+                        <span class="impulse active"></span>
+
+                        <span class="impulse active"></span>
+
+                        <span class="impulse overload"></span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Au début de chaque tour, le Technomancien génère
+                    <strong>
+                        2 Impulsions Nova
+                    </strong>,
+                    librement réparties entre les circuits.
+                </p>
+
+                <p>
+                    Les Impulsions non utilisées disparaissent à la fin du tour.
+                    Les deux peuvent être investies dans le même circuit.
+                </p>
+
+
+                <!-- CIRCUITS -->
+
+                <div class="circuit-grid">
+
+
+                    <article
+                        class="circuit-card arsenal"
+                        data-circuit="arsenal"
+                    >
+
+                        <div class="circuit-icon">
+                            ✦
+                        </div>
+
+                        <p class="circuit-code">
+                            CIRCUIT // A
+                        </p>
+
+                        <h4>
+                            Arsenal
+                        </h4>
+
+                        <p>
+                            Chaque Impulsion fournit :
+                        </p>
+
+                        <strong>
+                            +5 à un jet offensif Techno-Arcane effectué pendant
+                            ce tour.
+                        </strong>
+
+                        <button
+                            type="button"
+                            class="circuit-button"
+                            data-circuit-button
+                        >
+                            ROUTER IMPULSION
+                        </button>
+
+                    </article>
+
+
+                    <article
+                        class="circuit-card chassis"
+                        data-circuit="chassis"
+                    >
+
+                        <div class="circuit-icon">
+                            ⬡
+                        </div>
+
+                        <p class="circuit-code">
+                            CIRCUIT // C
+                        </p>
+
+                        <h4>
+                            Châssis
+                        </h4>
+
+                        <p>
+                            Chaque Impulsion fournit au choix :
+                        </p>
+
+                        <strong>
+                            +5 MOV
+                        </strong>
+
+                        <span class="or">
+                            OU
+                        </span>
+
+                        <strong>
+                            +5 à un jet défensif ou de Réactivité utilisant
+                            l’Exo-Armure.
+                        </strong>
+
+                        <button
+                            type="button"
+                            class="circuit-button"
+                            data-circuit-button
+                        >
+                            ROUTER IMPULSION
+                        </button>
+
+                    </article>
+
+
+                    <article
+                        class="circuit-card atelier"
+                        data-circuit="atelier"
+                    >
+
+                        <div class="circuit-icon">
+                            ⚙
+                        </div>
+
+                        <p class="circuit-code">
+                            CIRCUIT // W
+                        </p>
+
+                        <h4>
+                            Atelier
+                        </h4>
+
+                        <p>
+                            Chaque Impulsion fournit :
+                        </p>
+
+                        <strong>
+                            +1 point de Reconstruction à un Gadget.
+                        </strong>
+
+                        <button
+                            type="button"
+                            class="circuit-button"
+                            data-circuit-button
+                        >
+                            ROUTER IMPULSION
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+
+            <!-- ATELIER MODULAIRE -->
+
+            <div class="system-block">
+
+                <p class="system-label">
+                    WORKSHOP_PROTOCOL
+                </p>
+
+                <h3>
+                    Atelier Modulaire
+                </h3>
+
+                <p>
+                    Le Technomancien maîtrise différents Plans, mais peut monter
+                    <strong>
+                        3 Gadgets simultanément.
+                    </strong>
+                </p>
+
+                <p>
+                    À l’utilisation, un Gadget devient indisponible et sa
+                    Reconstruction revient à
+                    <strong>0</strong>.
+                </p>
+
+                <p>
+                    Chaque point du circuit Atelier l’augmente de
+                    <strong>+1</strong> ;
+                    lorsque la valeur maximale est atteinte, le Gadget redevient
+                    utilisable.
+                </p>
+
+
+                <div class="gadget-example">
+
+                    <div class="gadget-name">
+                        GRAPPIN MÉCANIQUE
+                    </div>
+
+                    <div class="gadget-reconstruction">
+
+                        <span class="gadget-point active"></span>
+
+                        <span class="gadget-point active"></span>
+
+                    </div>
+
+                    <span>
+                        Reconstruction : 2
+                    </span>
+
+                </div>
+
+
+                <p>
+                    <strong>
+                        Exemple :
+                    </strong>
+
+                    un Grappin mécanique de Reconstruction 2 revient à 0 / 2
+                    après utilisation ; deux points le rendent à nouveau
+                    disponible.
+                </p>
+
+                <p>
+                    Pendant un repos, une préparation ou une scène calme, les
+                    Gadgets montés peuvent être remplacés par d’autres Plans
+                    maîtrisés.
+                </p>
+
+            </div>
+
+
+            <!-- BATTERIE -->
+
+            <div class="battery-module">
+
+                <div class="battery-visual">
+
+                    <div class="battery-shell">
+
+                        <div class="battery-energy"></div>
+
+                        <div class="battery-cap"></div>
+
+                    </div>
+
+                    <p>
+                        ARCANE CELL
+                    </p>
+
+                </div>
+
+
+                <div class="battery-description">
+
+                    <p class="system-label">
+                        ENERGY_INTERFACE
+                    </p>
+
+                    <h3>
+                        Interface de Batterie Arcane
+                    </h3>
+
+                    <p>
+                        <strong>
+                            1 Batterie active à la fois.
+                        </strong>
+                    </p>
+
+                    <p>
+                        Elle alimente l’Exo-Armure et peut modifier Arsenal,
+                        Châssis, Atelier, certains Gadgets et certaines
+                        facultés.
+                    </p>
+
+                    <p>
+                        Son énergie est consommable et peut diminuer lorsqu’elle
+                        alimente activement l’armure ou qu’une faculté l’exige.
+                    </p>
+
+                    <p class="battery-change">
+                        <strong>
+                            Changement de Batterie :
+                            1 PR, maximum 1 fois par tour.
+                        </strong>
+                    </p>
+
+                    <p>
+                        Une Batterie accessible dans l’équipement remplace la
+                        Batterie active et devient immédiatement active.
+                    </p>
+
+                </div>
+
+            </div>
+
         </section>
-        <section class="section"><h2>Connaissances de base</h2><div class="knowledge-grid">
-            <div class="knowledge-item"><h4>Domaine de la Techno-Arcane <span class="level">(Moyen)</span></h4><p>Association de phénomènes magiques et de structures mécaniques ; identifier fonctions, technologies courantes et risques d’une mauvaise circulation de l’énergie.</p></div>
-            <div class="knowledge-item"><h4>Mécanique et Ingénierie <span class="level">(Moyen)</span></h4><p>Engrenages, pistons, transmissions, soupapes, verrouillages et articulations ; comprendre une machine et reconnaître une défaillance évidente.</p></div>
-            <div class="knowledge-item"><h4>Batteries Arcane et Cellules énergétiques <span class="level">(Modéré)</span></h4><p>Familles Silex, Auriane, Martellus, Sélénite et grandes Cellules Caténaires ; installation, purge, sécurité, surchauffe, fuite et détérioration.</p></div>
-            <div class="knowledge-item"><h4>Équipements Techno-Nova <span class="level">(Modéré)</span></h4><p>Fonctions, connecteurs et méthodes d’utilisation des Exo-Armures, armes, outils, protections et dispositifs Nova, y compris leurs variantes professionnelles ou militaires.</p></div>
-            <div class="knowledge-item"><h4>Gadgets et dispositifs auxiliaires <span class="level">(Modéré)</span></h4><p>Architecture et fonction des capteurs, grappins, mines, outils et dispositifs spécialisés ; composants nécessaires à leur réparation ou reconstruction.</p></div>
-            <div class="knowledge-item"><h4>Maintenance et sécurité Techno-Arcane <span class="level">(Moyen)</span></h4><p>Diagnostic, arrêt d’urgence, déconnexion, purge et sécurisation ; interventions autour de machines alimentées ou d’une accumulation énergétique anormale.</p></div>
-        </div><h3>Connaissances liées aux origines</h3><div class="knowledge-grid">
-            <div class="knowledge-item"><h4>Proto-Combattant Nova</h4><p><strong>Domaine martial (Moyen) :</strong> formations, combat, organisation des unités, stratégie et habitudes des soldats, gardes et mercenaires.</p><p><strong>Protection et Escorte (Moyen) :</strong> sécurisation des déplacements, zones dangereuses et protection d’une personne ou d’un convoi.</p></div>
-            <div class="knowledge-item"><h4>Proto-Tireur Nova</h4><p><strong>Chasse et Pistage (Moyen) :</strong> pistes, déplacements, traces et positions d’observation.</p><p><strong>Balistique et Projectiles (Moyen) :</strong> distance, angle, environnement, masse, trajectoires et provenance approximative d’un impact.</p></div>
-            <div class="knowledge-item"><h4>Proto-Constructeur Nova</h4><p><strong>Domaine artisanal (Moyen) :</strong> techniques, outils et matériaux de fabrication ; estimation générale de la qualité.</p><p><strong>Matériaux et Matières premières (Moyen) :</strong> identification, propriétés, usages, détérioration et choix des matériaux.</p></div>
-            <div class="knowledge-item"><h4>Proto-Hibou</h4><p><strong>Milieux criminels (Moyen) :</strong> contrebande, recel, marché noir, réseaux clandestins et circulation des marchandises illégales.</p><p><strong>Renseignement et Investigation (Moyen) :</strong> surveillance, recoupement, recherche d’indices et reconstruction partielle d’une situation.</p></div>
-        </div></section>
-        <section class="section" id="equipement"><h2>Équipement de départ</h2><ul><li>Exo-Armure Nova de série — Armure légère</li><li>Sac de cellules Silex standard</li><li>Arme de corps, arme de tir ou Gadgets du grade correspondant à la tranche de niveau</li><li>2 Potions de Vie</li></ul></section>
-        <section class="section"><h2>Classe d’Arme</h2><p><strong>Aucun bonus.</strong></p></section>
+
+
+        <!-- =====================================================
+             CONNAISSANCES
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="connaissances"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    06
+                </span>
+
+                <div>
+
+                    <p class="section-code">
+                        DATABASE // TECH_KNOWLEDGE
+                    </p>
+
+                    <h2>
+                        Connaissances de base
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="knowledge-grid">
+
+
+                <article class="knowledge-item">
+
+                    <span class="knowledge-id">
+                        K-01
+                    </span>
+
+                    <h4>
+                        Domaine de la Techno-Arcane
+                        <span class="level">
+                            (Moyen)
+                        </span>
+                    </h4>
+
+                    <p>
+                        Association de phénomènes magiques et de structures
+                        mécaniques ; identifier fonctions, technologies courantes
+                        et risques d’une mauvaise circulation de l’énergie.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <span class="knowledge-id">
+                        K-02
+                    </span>
+
+                    <h4>
+                        Mécanique et Ingénierie
+                        <span class="level">
+                            (Moyen)
+                        </span>
+                    </h4>
+
+                    <p>
+                        Engrenages, pistons, transmissions, soupapes,
+                        verrouillages et articulations ; comprendre une machine
+                        et reconnaître une défaillance évidente.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <span class="knowledge-id">
+                        K-03
+                    </span>
+
+                    <h4>
+                        Batteries Arcane et Cellules énergétiques
+                        <span class="level">
+                            (Modéré)
+                        </span>
+                    </h4>
+
+                    <p>
+                        Familles Silex, Auriane, Martellus, Sélénite et grandes
+                        Cellules Caténaires ; installation, purge, sécurité,
+                        surchauffe, fuite et détérioration.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <span class="knowledge-id">
+                        K-04
+                    </span>
+
+                    <h4>
+                        Équipements Techno-Nova
+                        <span class="level">
+                            (Modéré)
+                        </span>
+                    </h4>
+
+                    <p>
+                        Fonctions, connecteurs et méthodes d’utilisation des
+                        Exo-Armures, armes, outils, protections et dispositifs
+                        Nova, y compris leurs variantes professionnelles ou
+                        militaires.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <span class="knowledge-id">
+                        K-05
+                    </span>
+
+                    <h4>
+                        Gadgets et dispositifs auxiliaires
+                        <span class="level">
+                            (Modéré)
+                        </span>
+                    </h4>
+
+                    <p>
+                        Architecture et fonction des capteurs, grappins, mines,
+                        outils et dispositifs spécialisés ; composants
+                        nécessaires à leur réparation ou reconstruction.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <span class="knowledge-id">
+                        K-06
+                    </span>
+
+                    <h4>
+                        Maintenance et sécurité Techno-Arcane
+                        <span class="level">
+                            (Moyen)
+                        </span>
+                    </h4>
+
+                    <p>
+                        Diagnostic, arrêt d’urgence, déconnexion, purge et
+                        sécurisation ; interventions autour de machines
+                        alimentées ou d’une accumulation énergétique anormale.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <h3 class="subsection-title">
+                Connaissances liées aux origines
+            </h3>
+
+
+            <div class="knowledge-grid">
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Proto-Combattant Nova
+                    </h4>
+
+                    <p>
+                        <strong>
+                            Domaine martial (Moyen) :
+                        </strong>
+
+                        formations, combat, organisation des unités, stratégie et
+                        habitudes des soldats, gardes et mercenaires.
+                    </p>
+
+                    <p>
+                        <strong>
+                            Protection et Escorte (Moyen) :
+                        </strong>
+
+                        sécurisation des déplacements, zones dangereuses et
+                        protection d’une personne ou d’un convoi.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Proto-Tireur Nova
+                    </h4>
+
+                    <p>
+                        <strong>
+                            Chasse et Pistage (Moyen) :
+                        </strong>
+
+                        pistes, déplacements, traces et positions d’observation.
+                    </p>
+
+                    <p>
+                        <strong>
+                            Balistique et Projectiles (Moyen) :
+                        </strong>
+
+                        distance, angle, environnement, masse, trajectoires et
+                        provenance approximative d’un impact.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Proto-Constructeur Nova
+                    </h4>
+
+                    <p>
+                        <strong>
+                            Domaine artisanal (Moyen) :
+                        </strong>
+
+                        techniques, outils et matériaux de fabrication ;
+                        estimation générale de la qualité.
+                    </p>
+
+                    <p>
+                        <strong>
+                            Matériaux et Matières premières (Moyen) :
+                        </strong>
+
+                        identification, propriétés, usages, détérioration et
+                        choix des matériaux.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Proto-Hibou
+                    </h4>
+
+                    <p>
+                        <strong>
+                            Milieux criminels (Moyen) :
+                        </strong>
+
+                        contrebande, recel, marché noir, réseaux clandestins et
+                        circulation des marchandises illégales.
+                    </p>
+
+                    <p>
+                        <strong>
+                            Renseignement et Investigation (Moyen) :
+                        </strong>
+
+                        surveillance, recoupement, recherche d’indices et
+                        reconstruction partielle d’une situation.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ÉQUIPEMENT
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="equipement"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    07
+                </span>
+
+                <div>
+
+                    <p class="section-code">
+                        LOADOUT // STARTING_EQUIPMENT
+                    </p>
+
+                    <h2>
+                        Équipement de départ
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="equipment-grid">
+
+
+                <article class="equipment-item">
+
+                    <div class="equipment-icon">
+                        ⬡
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Exo-Armure Nova de série
+                        </h4>
+
+                        <p>
+                            Armure légère.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="equipment-item">
+
+                    <div class="equipment-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Sac de cellules Silex standard
+                        </h4>
+
+                        <p>
+                            Source énergétique destinée aux équipements
+                            Techno-Nova.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="equipment-item">
+
+                    <div class="equipment-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Armement / Gadgets
+                        </h4>
+
+                        <p>
+                            Arme de corps, arme de tir ou Gadgets du grade
+                            correspondant à la tranche de niveau.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="equipment-item">
+
+                    <div class="equipment-icon">
+                        +
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            2 Potions de Vie
+                        </h4>
+
+                        <p>
+                            Équipement de départ.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CLASSE D'ARME
+        ====================================================== -->
+
+        <section class="section reveal-section">
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    08
+                </span>
+
+                <div>
+
+                    <p class="section-code">
+                        WEAPON_PROTOCOL
+                    </p>
+
+                    <h2>
+                        Classe d’Arme
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="weapon-module">
+
+                <span class="weapon-status">
+                    NO BONUS
+                </span>
+
+                <p>
+                    <strong>
+                        Aucun bonus.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
     </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            FERROVIA NOVA
+        </div>
+
+        <p>
+            TECHNO-ARCANE SYSTEM // TERMION
+        </p>
+
+        <p>
+            © 2024 Termion — Tous droits réservés
+        </p>
+
+    </footer>
+
 </body>
+
 </html>

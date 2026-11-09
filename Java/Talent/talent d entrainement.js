@@ -409,9 +409,11 @@ const allTalents = [
 let talents = [...allTalents];
 let currentSort = { column: null, direction: null };
 let searchTerm = '';
+const talentSelection = TalentSelection.create({ talents: allTalents, render: renderTable });
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
+    talentSelection.init();
     renderTable();
     updateCounts();
     attachEventListeners();
@@ -480,6 +482,7 @@ function renderTable() {
         row.appendChild(catCell);
         row.appendChild(coutCell);
         
+        talentSelection.bindRow(row, talent);
         tbody.appendChild(row);
     });
     

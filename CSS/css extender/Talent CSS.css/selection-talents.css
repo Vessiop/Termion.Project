@@ -1,0 +1,44 @@
+[hidden] { display: none !important; }
+.main-title { overflow-wrap: anywhere; letter-spacing: 0; }
+.talent-selection-controls { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 20px; padding: 15px; border: 1px solid var(--gold); border-radius: 4px; background: rgba(201, 169, 97, .1); }
+.talent-selection-controls label { display: inline-flex; align-items: center; gap: 12px; color: var(--burgundy); font-family: 'Cinzel', serif; font-weight: 600; font-size: 16px; line-height: 1.5; cursor: pointer; }
+.talent-selection-controls input, .talent-pick { appearance: none; width: 22px; height: 22px; flex: 0 0 22px; border: 2px solid var(--burgundy); border-radius: 4px; background: white; color: white; cursor: pointer; display: inline-grid; place-content: center; }
+.talent-selection-controls input:checked, .talent-pick:checked { background: var(--burgundy); }
+.talent-selection-controls input:checked::before, .talent-pick:checked::before { content: '\2713'; font-family: Arial, sans-serif; font-size: 17px; font-weight: 700; line-height: 1; }
+.talent-pick { margin-right: 10px; vertical-align: middle; }
+.talent-selection-controls button, .selection-summary button { font-family: 'Cinzel', serif; font-weight: 600; font-size: 13px; line-height: 1.5; letter-spacing: 0; color: white; background: var(--gold-dark); border: 1px solid var(--gold-dark); border-radius: 4px; padding: 10px 14px; cursor: pointer; max-width: 100%; white-space: normal; transition: background-color .2s, border-color .2s; }
+.talent-selection-controls button:hover:not(:disabled), .selection-summary button:hover { background: var(--burgundy); border-color: var(--burgundy); }
+.talent-selection-controls button:disabled { opacity: .5; cursor: default; }
+.selection-summary { margin: 0 0 30px; padding: 24px 0; border-top: 3px solid var(--burgundy); border-bottom: 1px solid var(--gold-dark); }
+.selection-summary-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--gold); }
+.selection-summary h2 { font-family: 'Cinzel', serif; font-size: 24px; line-height: 1.4; color: var(--burgundy); letter-spacing: 0; }
+.selection-summary-stats { display: flex; align-items: center; gap: 12px 24px; flex-wrap: wrap; font-family: 'Cinzel', serif; font-weight: 600; color: var(--gold-dark); font-size: 15px; }
+.selection-summary-stats > span:last-child { padding: 8px 12px; border: 2px solid var(--burgundy); border-radius: 4px; background: white; color: var(--burgundy); }
+.selection-summary-stats strong { color: var(--burgundy); }
+.selection-summary .selected-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.selection-summary .selected-talent-card { min-width: 0; padding: 20px; border: 2px solid var(--gold); border-radius: 8px; background: white; }
+.selection-summary .selected-talent-card:hover { border-color: var(--burgundy); }
+.selection-summary h3 { font-family: 'Cinzel', serif; color: var(--burgundy); font-size: 18px; line-height: 1.45; margin: 0 0 12px; letter-spacing: 0; }
+.selection-summary p { font-size: 17px; line-height: 1.6; margin: 0 0 14px; }
+.selection-summary .selected-talent-condition { color: var(--burgundy); font-size: 15px; }
+.selected-talent-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid var(--gold); margin-top: 18px; padding-top: 14px; }
+.selected-talent-footer strong { color: var(--burgundy); font-family: 'Cinzel', serif; font-size: 15px; }
+.selection-summary h2, .selection-summary h3, .selection-summary p, .selection-summary button { overflow-wrap: anywhere; }
+.talents-table tbody tr.selectable { cursor: pointer; }
+.talents-table tbody tr.selected { background: rgba(201, 169, 97, .25); box-shadow: inset 4px 0 var(--burgundy); }
+.talents-table tbody tr.selected:hover { background: rgba(201, 169, 97, .35); }
+.talent-pick:focus-visible, .talent-selection-controls input:focus-visible, .talent-selection-controls button:focus-visible, .selection-summary button:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 3px; }
+@media (max-width: 720px) {
+    .back-button { position: relative; top: auto; left: auto; margin: 16px 15px 0; }
+    .header { padding-top: 24px; }
+    .main-title { font-size: 28px; line-height: 1.4; }
+    .header .ornament { display: none; }
+    .search-bar { flex-direction: row; align-items: center; }
+    #searchInput { min-width: 0; flex: 1 1 auto; }
+    .clear-btn { flex: 0 0 40px; width: 40px; height: 40px; padding: 0; }
+    .selection-summary .selected-grid { grid-template-columns: minmax(0, 1fr); }
+    .selection-summary h2 { font-size: 21px; }
+    .selection-summary .selected-talent-card { padding: 18px; }
+    .talent-selection-controls { align-items: flex-start; }
+    .talent-selection-controls label { font-size: 15px; }
+}
