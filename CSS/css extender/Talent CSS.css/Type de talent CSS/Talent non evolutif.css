@@ -587,6 +587,7 @@ body {
     font-size: 0.95rem;
     color: var(--ink);
     line-height: 1.5;
+    white-space: pre-line;
     margin-bottom: 8px;
 }
 
@@ -732,6 +733,7 @@ body {
 .talent-effet {
     color: var(--ink);
     line-height: 1.7;
+    white-space: pre-line;
 }
 
 .talent-cout {
