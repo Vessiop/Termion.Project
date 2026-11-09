@@ -1,0 +1,56 @@
+/* Arrière-plans communs. Les palettes des fiches restent propres à chaque page. */
+html[data-termion-theme="windress"] { --termion-background: #e8f4f8; }
+html[data-termion-theme="pylorianne"] { --termion-background: #ffe8d6; }
+html[data-termion-theme="arzass"] { --termion-background: #1a1625; }
+html[data-termion-theme="markarane"] { --termion-background: #d4a154; }
+
+html[data-termion-theme]:not([data-termion-theme="base"]) body {
+    background: var(--termion-background);
+    min-height: 100vh;
+    /* La météo reste derrière les textes, menus, graphiques et contrôles. */
+    isolation: isolate;
+}
+
+html[data-termion-theme]:not([data-termion-theme="base"]) body > :where(main.container, header, footer) {
+    background-color: var(--parchment, #f4e9d8);
+    background-color: color-mix(in srgb, var(--parchment, #f4e9d8) 82%, transparent);
+}
+
+/* Le premier affichage utilise directement la couleur mémorisée. */
+html[data-termion-theme]:not([data-termion-ready]) body {
+    transition: none;
+}
+
+#termion-weather {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+    contain: strict;
+}
+
+#termion-weather[hidden] { display: none; }
+#termion-weather canvas { pointer-events: none; }
+
+/* Sur l'accueil, Arzass conserve des cartes sombres et des libellés lisibles. */
+html[data-termion-theme="arzass"] body .nav-item {
+    background: linear-gradient(135deg, #2a2438, #1a1625);
+}
+
+html[data-termion-theme="arzass"] .theme-tab {
+    background: #2a2438;
+    color: #e8e4f3;
+}
+
+html[data-termion-theme="arzass"] .theme-tab[data-theme="arzass"] {
+    background: #7859b3;
+    color: #fff;
+}
+
+html[data-termion-theme="arzass"] .theme-tabs ~ .header .subtitle { color: #b794f6; }
+
+@media print {
+    #termion-weather { display: none; }
+}
