@@ -214,6 +214,13 @@ body {
     pointer-events: none;
 }
 
+.availability-note {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
 .metier-icon {
     font-size: 3.5rem;
     margin-bottom: 15px;

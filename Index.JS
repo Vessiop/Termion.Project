@@ -1,23 +1,3 @@
-// Moteur météo partagé par toutes les pages de Termion.
-(() => {
-    'use strict';
-    const theme = window.TermionTheme;
-    if (!theme || theme.initialized) return;
-    theme.initialized = true;
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const particleScale = window.matchMedia('(max-width: 768px)').matches ? 0.55 : 1;
-    let weatherRoot = null;
-
-    function getWeatherRoot() {
-        if (!weatherRoot) {
-            weatherRoot = document.createElement('div');
-            weatherRoot.id = 'termion-weather';
-            weatherRoot.setAttribute('aria-hidden', 'true');
-            document.body.appendChild(weatherRoot);
-        }
-        return weatherRoot;
-    }
-
 // ========================================
 // SYSTÈME D'ANIMATIONS TERMION
 // Version Premium - Effets Météo Extrêmes
@@ -32,8 +12,8 @@ class SnowflakeSystem {
         this.ctx = null;
         this.snowflakes = [];
         this.snowDust = [];
-        this.maxSnowflakes = Math.ceil(80 * particleScale);
-        this.maxSnowDust = Math.ceil(150 * particleScale);
+        this.maxSnowflakes = 80;
+        this.maxSnowDust = 150;
         this.animationId = null;
         this.isActive = false;
         this.windStrength = 0;
@@ -58,8 +38,7 @@ class SnowflakeSystem {
             transition: "opacity 0.8s ease"
         });
         
-        this.canvas.setAttribute('aria-hidden', 'true');
-        getWeatherRoot().appendChild(this.canvas);
+        document.body.appendChild(this.canvas);
         this.ctx = this.canvas.getContext("2d", { alpha: true });
         
         this.resize();
@@ -80,15 +59,12 @@ class SnowflakeSystem {
         if (!this.canvas) return;
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-        if (this.isActive && reducedMotion.matches) this.animate();
     }
 
     start() {
         if (this.isActive) return;
         this.init();
-        if (!this.ctx) return;
         this.isActive = true;
-        this.canvas.style.display = "block";
         this.canvas.style.opacity = "1";
         this.animate();
     }
@@ -102,15 +78,12 @@ class SnowflakeSystem {
         }
         if (this.canvas) {
             this.canvas.style.opacity = "0";
-            this.canvas.style.display = "none";
         }
     }
 
     animate() {
         if (!this.isActive) return;
-        if (!reducedMotion.matches) {
-            this.animationId = requestAnimationFrame(() => this.animate());
-        }
+        this.animationId = requestAnimationFrame(() => this.animate());
         
         // Vent variable pour effet blizzard
         this.windStrength = Math.sin(Date.now() * 0.0005) * 2 + 1;
@@ -244,10 +217,10 @@ class VolcanicSystem {
         this.flows = [];
         this.ashes = [];
         this.flames = [];
-        this.maxBubbles = Math.ceil(50 * particleScale);
-        this.maxFlows = Math.ceil(15 * particleScale);
-        this.maxAshes = Math.ceil(30 * particleScale);
-        this.maxFlames = Math.ceil(120 * particleScale);
+        this.maxBubbles = 50;
+        this.maxFlows = 15;
+        this.maxAshes = 30;
+        this.maxFlames = 120;
         this.animationId = null;
         this.isActive = false;
         this.gradientOffset = 0;
@@ -271,8 +244,7 @@ class VolcanicSystem {
             transition: "opacity 1s ease"
         });
         
-        this.canvas.setAttribute('aria-hidden', 'true');
-        getWeatherRoot().appendChild(this.canvas);
+        document.body.appendChild(this.canvas);
         this.ctx = this.canvas.getContext("2d", { alpha: false });
         
         this.resize();
@@ -297,15 +269,12 @@ class VolcanicSystem {
         if (!this.canvas) return;
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-        if (this.isActive && reducedMotion.matches) this.animate();
     }
 
     start() {
         if (this.isActive) return;
         this.init();
-        if (!this.ctx) return;
         this.isActive = true;
-        this.canvas.style.display = "block";
         this.canvas.style.opacity = "1";
         this.animate();
     }
@@ -319,7 +288,6 @@ class VolcanicSystem {
         }
         if (this.canvas) {
             this.canvas.style.opacity = "0";
-            this.canvas.style.display = "none";
         }
     }
 
@@ -342,9 +310,7 @@ class VolcanicSystem {
 
     animate() {
         if (!this.isActive) return;
-        if (!reducedMotion.matches) {
-            this.animationId = requestAnimationFrame(() => this.animate());
-        }
+        this.animationId = requestAnimationFrame(() => this.animate());
         
         this.drawGradient();
         
@@ -491,7 +457,7 @@ class StarSystem {
         this.canvas = null;
         this.ctx = null;
         this.stars = [];
-        this.maxStars = Math.ceil(50 * particleScale);
+        this.maxStars = 50;
         this.animationId = null;
         this.isActive = false;
     }
@@ -514,8 +480,7 @@ class StarSystem {
             transition: "opacity 0.8s ease"
         });
         
-        this.canvas.setAttribute('aria-hidden', 'true');
-        getWeatherRoot().appendChild(this.canvas);
+        document.body.appendChild(this.canvas);
         this.ctx = this.canvas.getContext("2d", { alpha: true });
         
         this.resize();
@@ -530,15 +495,12 @@ class StarSystem {
         if (!this.canvas) return;
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-        if (this.isActive && reducedMotion.matches) this.animate();
     }
 
     start() {
         if (this.isActive) return;
         this.init();
-        if (!this.ctx) return;
         this.isActive = true;
-        this.canvas.style.display = "block";
         this.canvas.style.opacity = "1";
         this.animate();
     }
@@ -552,15 +514,12 @@ class StarSystem {
         }
         if (this.canvas) {
             this.canvas.style.opacity = "0";
-            this.canvas.style.display = "none";
         }
     }
 
     animate() {
         if (!this.isActive) return;
-        if (!reducedMotion.matches) {
-            this.animationId = requestAnimationFrame(() => this.animate());
-        }
+        this.animationId = requestAnimationFrame(() => this.animate());
         
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
@@ -634,8 +593,8 @@ class SandstormSystem {
         this.sandParticles = [];
         this.largeSand = [];
         this.maxWaves = 8;
-        this.maxParticles = Math.ceil(200 * particleScale);
-        this.maxLargeSand = Math.ceil(60 * particleScale);
+        this.maxParticles = 200;
+        this.maxLargeSand = 60;
         this.animationId = null;
         this.isActive = false;
         this.stormIntensity = 0;
@@ -659,8 +618,7 @@ class SandstormSystem {
             transition: "opacity 1s ease"
         });
         
-        this.canvas.setAttribute('aria-hidden', 'true');
-        getWeatherRoot().appendChild(this.canvas);
+        document.body.appendChild(this.canvas);
         this.ctx = this.canvas.getContext("2d", { alpha: true });
         
         this.resize();
@@ -686,20 +644,12 @@ class SandstormSystem {
         if (!this.canvas) return;
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-        this.sandWaves.forEach((wave, index) => {
-            wave.width = this.canvas.width;
-            wave.height = this.canvas.height;
-            wave.y = (index / this.maxWaves) * this.canvas.height;
-        });
-        if (this.isActive && reducedMotion.matches) this.animate();
     }
 
     start() {
         if (this.isActive) return;
         this.init();
-        if (!this.ctx) return;
         this.isActive = true;
-        this.canvas.style.display = "block";
         this.canvas.style.opacity = "1";
         this.animate();
     }
@@ -713,15 +663,12 @@ class SandstormSystem {
         }
         if (this.canvas) {
             this.canvas.style.opacity = "0";
-            this.canvas.style.display = "none";
         }
     }
 
     animate() {
         if (!this.isActive) return;
-        if (!reducedMotion.matches) {
-            this.animationId = requestAnimationFrame(() => this.animate());
-        }
+        this.animationId = requestAnimationFrame(() => this.animate());
         
         // Intensité variable de la tempête
         this.stormIntensity = Math.sin(Date.now() * 0.0004) * 0.3 + 0.7;
@@ -865,70 +812,74 @@ class LargeSandGrain {
     }
 }
 
+// ========================================
+// GESTION GLOBALE
+// ========================================
+const snowflakeSystem = new SnowflakeSystem();
+const volcanicSystem = new VolcanicSystem();
+const starSystem = new StarSystem();
+const sandstormSystem = new SandstormSystem();
 
-    const systems = {
-        windress: new SnowflakeSystem(),
-        pylorianne: new VolcanicSystem(),
-        arzass: new StarSystem(),
-        markarane: new SandstormSystem()
-    };
-    // Compatibilité avec les noms exposés par l'ancien accueil.
-    window.snowflakeSystem = systems.windress;
-    window.volcanicSystem = systems.pylorianne;
-    window.starSystem = systems.arzass;
-    window.sandstormSystem = systems.markarane;
+window.snowflakeSystem = snowflakeSystem;
+window.volcanicSystem = volcanicSystem;
+window.starSystem = starSystem;
+window.sandstormSystem = sandstormSystem;
 
-    function stopWeather() {
-        Object.values(systems).forEach(system => system.stop());
-    }
+// ========================================
+// SYSTÈME DE THÈMES
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.theme-tab');
+    const body = document.body;
+    let currentTheme = 'base';
 
-    function resumeWeather() {
-        if (!document.hidden) systems[theme.current]?.start();
-    }
-
-    function changeTheme(name, persist = true) {
-        name = theme.normalize(name);
-        if (name !== theme.current) stopWeather();
-        theme.apply(name);
-        // Ne retire jamais les classes propres aux fiches.
-        theme.names.forEach(value => document.body.classList.remove(`theme-${value}`));
-        if (name !== 'base') document.body.classList.add(`theme-${name}`);
-
-        document.querySelectorAll('.theme-tab').forEach(tab => {
-            const selected = tab.dataset.theme === name;
-            tab.classList.toggle('active', selected);
-            tab.setAttribute('aria-pressed', String(selected));
+    function changeTheme(themeName) {
+        // Arrêter ancien
+        snowflakeSystem.stop();
+        volcanicSystem.stop();
+        starSystem.stop();
+        sandstormSystem.stop();
+        
+        body.className = body.className.replace(/theme-\w+/g, '').trim();
+        
+        if (themeName !== 'base') {
+            body.classList.add(`theme-${themeName}`);
+        }
+        
+        tabs.forEach(tab => {
+            if (tab.dataset.theme === themeName) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
         });
-        if (weatherRoot) weatherRoot.hidden = name === 'base';
-        resumeWeather();
-        if (persist) {
-            try { window.localStorage.setItem('termion-theme', name); } catch { /* Stockage privé/refusé. */ }
+        
+        // Démarrer nouveau
+        if (themeName === 'windress') {
+            snowflakeSystem.start();
+        } else if (themeName === 'pylorianne') {
+            volcanicSystem.start();
+        } else if (themeName === 'arzass') {
+            starSystem.start();
+        } else if (themeName === 'markarane') {
+            sandstormSystem.start();
         }
+        
+        currentTheme = themeName;
+        localStorage.setItem('termion-theme', themeName);
     }
 
-    theme.set = changeTheme;
-    document.querySelectorAll('.theme-tab').forEach(tab => {
-        tab.addEventListener('click', () => changeTheme(tab.dataset.theme));
+    // Event listeners onglets
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            changeTheme(this.dataset.theme);
+        });
     });
-    // Le script est chargé avec defer, après la construction du document.
-    changeTheme(theme.current, false);
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-        document.documentElement.dataset.termionReady = 'true';
-    }));
-
-    window.addEventListener('pagehide', stopWeather);
-    window.addEventListener('pageshow', () => changeTheme(theme.read(theme.current), false));
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) stopWeather();
-        else changeTheme(theme.read(theme.current), false);
-    });
-    window.addEventListener('storage', event => {
-        if (event.key === 'termion-theme' || event.key === null) {
-            changeTheme(event.newValue, false);
-        }
-    });
-    reducedMotion.addEventListener('change', () => {
-        stopWeather();
-        resumeWeather();
-    });
-})();
+    
+    // Charger le thème sauvegardé
+    const savedTheme = localStorage.getItem('termion-theme') || 'base';
+    changeTheme(savedTheme);
+    
+    console.log('✨ Termion animation system ready!');
+    console.log('🌪️ Weather effects: Blizzard & Sandstorm');
+});

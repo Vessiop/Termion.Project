@@ -12,7 +12,7 @@
 }
 
 /* Variables pour le thème Windress (Hiver/Neige) */
-html[data-termion-theme="windress"] body {
+body.theme-windress {
     --parchment: #e8f4f8;
     --parchment-dark: #c8d8e4;
     --ink: #1a3a52;
@@ -23,7 +23,7 @@ html[data-termion-theme="windress"] body {
 }
 
 /* Variables pour le thème Pylorianne (Feu/Lave) */
-html[data-termion-theme="pylorianne"] body {
+body.theme-pylorianne {
     --parchment: #ffe8d6;
     --parchment-dark: #e8c4a8;
     --ink: #4a1f0f;
@@ -34,7 +34,7 @@ html[data-termion-theme="pylorianne"] body {
 }
 
 /* Variables pour le thème Arzass (Nocturne/Mystique) */
-html[data-termion-theme="arzass"] body {
+body.theme-arzass {
     --parchment: #1a1625;
     --parchment-dark: #2a2438;
     --ink: #e8e4f3;
@@ -45,7 +45,7 @@ html[data-termion-theme="arzass"] body {
 }
 
 /* Variables pour le thème Markarane (Désert - Tempête de sable) */
-html[data-termion-theme="markarane"] body {
+body.theme-markarane {
     --parchment: #d4a154;
     --parchment-dark: #b8853a;
     --ink: #3a2a1a;
@@ -136,11 +136,7 @@ body {
     box-shadow: 0 4px 8px rgba(44, 36, 22, 0.2);
 }
 
-html[data-termion-theme="base"] .theme-tab[data-theme="base"],
-html[data-termion-theme="windress"] .theme-tab[data-theme="windress"],
-html[data-termion-theme="pylorianne"] .theme-tab[data-theme="pylorianne"],
-html[data-termion-theme="arzass"] .theme-tab[data-theme="arzass"],
-html[data-termion-theme="markarane"] .theme-tab[data-theme="markarane"] {
+.theme-tab.active {
     background: var(--burgundy);
     color: white;
     border-color: var(--burgundy);
@@ -159,10 +155,10 @@ html[data-termion-theme="markarane"] .theme-tab[data-theme="markarane"] {
     background: linear-gradient(to bottom, var(--parchment) 0%, rgba(201, 169, 97, 0.05) 100%);
 }
 
-html[data-termion-theme="windress"] body .header,
-html[data-termion-theme="pylorianne"] body .header,
-html[data-termion-theme="arzass"] body .header,
-html[data-termion-theme="markarane"] body .header {
+body.theme-windress .header,
+body.theme-pylorianne .header,
+body.theme-arzass .header,
+body.theme-markarane .header {
     backdrop-filter: blur(5px);
 }
 
@@ -265,10 +261,10 @@ html[data-termion-theme="markarane"] body .header {
     backdrop-filter: blur(3px);
 }
 
-html[data-termion-theme="pylorianne"] body .nav-item,
-html[data-termion-theme="windress"] body .nav-item,
-html[data-termion-theme="arzass"] body .nav-item,
-html[data-termion-theme="markarane"] body .nav-item {
+body.theme-pylorianne .nav-item,
+body.theme-windress .nav-item,
+body.theme-arzass .nav-item,
+body.theme-markarane .nav-item {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(232, 196, 168, 0.9) 100%);
 }
 
@@ -336,7 +332,7 @@ html[data-termion-theme="markarane"] body .nav-item {
    ======================================== */
 
 /* Neige sur les cases - Windress */
-html[data-termion-theme="windress"] body .nav-item::after {
+body.theme-windress .nav-item::after {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -349,24 +345,24 @@ html[data-termion-theme="windress"] body .nav-item::after {
     transition: opacity 0.8s ease;
 }
 
-html[data-termion-theme="windress"] body .nav-item:nth-child(odd)::after {
+body.theme-windress .nav-item:nth-child(odd)::after {
     height: 20px;
 }
 
-html[data-termion-theme="windress"] body .nav-item:nth-child(3n)::after {
+body.theme-windress .nav-item:nth-child(3n)::after {
     height: 12px;
 }
 
 /* Lueur de feu sur les cases - Pylorianne */
-html[data-termion-theme="pylorianne"] body .nav-item {
+body.theme-pylorianne .nav-item {
     box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
 }
 
-html[data-termion-theme="pylorianne"] body .nav-item:hover {
+body.theme-pylorianne .nav-item:hover {
     box-shadow: 0 0 25px rgba(255, 107, 53, 0.6);
 }
 
-html[data-termion-theme="pylorianne"] body .nav-item::after {
+body.theme-pylorianne .nav-item::after {
     content: '';
     position: absolute;
     bottom: -3px;
@@ -388,16 +384,16 @@ html[data-termion-theme="pylorianne"] body .nav-item::after {
 }
 
 /* Lueur mystique - Arzass */
-html[data-termion-theme="arzass"] body .nav-item {
+body.theme-arzass .nav-item {
     box-shadow: 0 0 20px rgba(183, 148, 246, 0.4);
     border-color: var(--gold);
 }
 
-html[data-termion-theme="arzass"] body .nav-item:hover {
+body.theme-arzass .nav-item:hover {
     box-shadow: 0 0 30px rgba(183, 148, 246, 0.7);
 }
 
-html[data-termion-theme="arzass"] body .nav-item::after {
+body.theme-arzass .nav-item::after {
     content: '';
     position: absolute;
     top: 0;
@@ -419,15 +415,15 @@ html[data-termion-theme="arzass"] body .nav-item::after {
 }
 
 /* Effet sable - Markarane */
-html[data-termion-theme="markarane"] body .nav-item {
+body.theme-markarane .nav-item {
     box-shadow: 0 5px 15px rgba(212, 161, 84, 0.4);
 }
 
-html[data-termion-theme="markarane"] body .nav-item:hover {
+body.theme-markarane .nav-item:hover {
     box-shadow: 0 8px 20px rgba(212, 161, 84, 0.6);
 }
 
-html[data-termion-theme="markarane"] body .nav-item::after {
+body.theme-markarane .nav-item::after {
     content: '';
     position: absolute;
     bottom: -8px;
@@ -443,11 +439,11 @@ html[data-termion-theme="markarane"] body .nav-item::after {
     filter: blur(2px);
 }
 
-html[data-termion-theme="markarane"] body .nav-item:nth-child(odd)::after {
+body.theme-markarane .nav-item:nth-child(odd)::after {
     height: 25px;
 }
 
-html[data-termion-theme="markarane"] body .nav-item:nth-child(3n)::after {
+body.theme-markarane .nav-item:nth-child(3n)::after {
     height: 15px;
 }
 
