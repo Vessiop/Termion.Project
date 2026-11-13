@@ -1343,6 +1343,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     }
 
+    
 
     // =========================================================
     // SCAN DU HERO
